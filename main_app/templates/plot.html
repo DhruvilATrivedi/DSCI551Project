@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/main.css">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+
+              var data = google.visualization.arrayToDataTable({{google|safe}});
+              var options = {
+              title: 'Google Trends Data',
+              legend: { position: 'bottom' }
+              };
+              var chart = new google.visualization.LineChart(document.getElementById('google_trends'));
+              chart.draw(data, options);
+            }
+        </script>
+
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+
+              var data = google.visualization.arrayToDataTable({{twitter|safe}});
+              var options = {
+              title: 'Twitter Trends Data',
+              legend: { position: 'bottom' }
+              };
+              var chart = new google.visualization.LineChart(document.getElementById('twitter_trends'));
+              chart.draw(data, options);
+            }
+        </script>
+
+
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+
+              var data = google.visualization.arrayToDataTable({{combined|safe}});
+              var options = {
+              title: 'Comparing Trends Data',
+              legend: { position: 'bottom' }
+              };
+              var chart = new google.visualization.LineChart(document.getElementById('all_trends'));
+              chart.draw(data, options);
+            }
+        </script>
+
+    </head>
+    <body class="body">
+        <div id="google_trends" style="width: 1500px; height: 700px"></div>
+        <div id="twitter_trends" style="width: 1500px; height: 700px"></div>
+        <div id="all_trends" style="width: 1500px; height: 700px"></div>
+
+    </body>
+  </html>
